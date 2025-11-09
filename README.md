@@ -1,9 +1,3 @@
-# Student Performance Prediction
-
-[![Python Version](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Framework](https://img.shields.io/badge/Framework-Flask-green.svg)](https://flask.palletsprojects.com/)
-
 A machine learning web application to predict student math scores based on demographic and academic performance data. Built with Flask, scikit-learn, and deployed on AWS EC2, this project demonstrates a complete end-to-end ML workflow, from data exploration to deployment.
 
 ## 📋 Table of Contents
@@ -120,76 +114,8 @@ cd Student-Performance-Prediction-System
 ### Step 2: Set Up The Environment and Install Dependencies
 We recommend using `uv`, a fast, next-generation Python package manager, for setup.
 
-#### Recommended Approach (using `uv`)
-1.  **Install `uv`** on your system if you haven't already.
-    ```bash
-    # On macOS and Linux
-    curl -LsSf https://astral.sh/uv/install.sh | sh
 
-    # On Windows
-    powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-    ```
 
-2.  **Create a virtual environment and install dependencies** with a single command:
-    ```bash
-    uv sync
-    ```
-    This command automatically creates a `.venv` folder in your project directory and installs all listed packages from `requirements.txt`.
-
-    > **Note**: For a comprehensive guide on `uv`, check out this detailed tutorial: [uv-tutorial-guide](https://github.com/GoJo-Rika/uv-tutorial-guide).
-
-#### Alternative Approach (using `venv` and `pip`)
-If you prefer to use the standard `venv` and `pip`:
-1.  **Create and activate a virtual environment:**
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use: venv\Scripts\activate
-    ```
-
-2.  **Install the required dependencies:**
-    ```bash
-    pip install -r requirements.txt  # Using uv: uv add -r requirements.txt
-    ```
-
-## <a id="running-the-application"></a>👟 Running the Application
-<!-- ## 👟 Running the Application -->
-
-Follow these steps to run the project locally.
-
-### Step 1: Run the Training Pipeline
-
-Before you can run the web application for the first time, you need to train the model. This will generate the necessary `model.pkl` and `preprocessor.pkl` files in the `artifacts/` directory.
-
-```bash
-python src/components/data_ingestion.py     # Using uv: uv run src/components/data_ingestion.py
-```
-
-This single command will execute the entire training workflow: data ingestion, transformation, and model training.
-
-### Step 2: Start the Prediction Server
-
-Once the training is complete and the artifacts are saved, start the Flask web server:
-
-```bash
-python application.py   # Using uv: uv run application.py
-```
-
-### Step 3: Access the Web App
-
-Open your web browser and navigate to:
-**http://127.0.0.1:5000**
-
-You can now use the form to input student data and get a math score prediction.
-
-## <a id="jupyter-notebooks"></a>🧪 Jupyter Notebooks
-<!-- ## 🧪 Jupyter Notebooks -->
-
-The `notebooks/` directory contains two key notebooks that document the project's development:
-
-1.  **`1 . EDA STUDENT PERFORMANCE .ipynb`**: This notebook contains a detailed Exploratory Data Analysis (EDA) of the student dataset, including visualizations and key insights that informed the feature engineering and model selection process.
-2.  **`2. MODEL TRAINING.ipynb`**: This notebook shows the initial model training and evaluation experiments. It serves as a scratchpad for testing different models and preprocessing steps before they were refactored into the main `src` pipeline.
-
-## <a id="development-workflow"></a>🔄 Development Workflow
 <!-- ## 🔄 Development Workflow -->
 
 This project follows a modular, pipeline-based architecture:
